@@ -1,10 +1,14 @@
 {
-  "name": "Ubuntu Codespace",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
-  "features": {
-    "ghcr.io/devcontainers/features/sshd:1": {
-      "version": "latest"
+  "name": "Ubuntu 20.04 Codespace",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-20.04",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        "ms-vscode.vscode-typescript-tslint-plugin"
+      ]
     }
   },
-  "remoteUser": "vscode"
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y openssh-client curl wget git vim net-tools"
 }
